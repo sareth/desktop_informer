@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menubar name="ourMenu">
+        <!--File-->
+        <menu name="File" text="Файл" mnemonic="Ф">
+            <menuitem name="openNotice" text="Открыть уведомление" mnemonic="O" accelerator="control O">
+            	</menuitem>
+            <separator></separator><menuitem name="exit" text="Выход"/>
+        </menu>
+        <!--Edit-->
+        <menu name="Settings" text="Настройки" mnemonic="Н">
+        	<menuitem text="Изменить преподавателя" name="changeTeacher"></menuitem>
+        </menu>
+        <!--Help-->
+        <menu name="help" text="О программе" mnemonic="п">
+        	<menuitem text="Разработчики" name="developers"></menuitem>
+        </menu>
+    </menubar>
