@@ -55,7 +55,7 @@ public class ShowFrameTeacherChoice extends JFrame {
 	public class TestActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	final String item = (String)comboBox.getSelectedItem();
-        	File tecaherFile = new File("teacher.cfg");
+        	File tecaherFile = new File(Main.teachercfg.getPath());
         	/*EventQueue.invokeLater(new Runnable() {
 			    @Override public void run() {
 			    	try {

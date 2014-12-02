@@ -334,8 +334,10 @@ public class ShowFrameSchedule extends JFrame {
 		tableThirdWeek.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		tableThirdWeek.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
+		SetPrefSizes(tableFirstWeek);
+		SetPrefSizes(tableSecondWeek);
+		SetPrefSizes(tableThirdWeek);
 		
-
 		JScrollPane scrollFirst = new JScrollPane(tableFirstWeek);
 		JScrollPane scrollSecond = new JScrollPane(tableSecondWeek);
 		JScrollPane scrollThird = new JScrollPane(tableThirdWeek);
@@ -368,7 +370,7 @@ public class ShowFrameSchedule extends JFrame {
 		jtPane.add("Текущая неделя", scrollSecond);
 		jtPane.add("Следующая неделя", scrollThird);
 
-		jtPane.setPreferredSize(new Dimension(800, 300));
+		//jtPane.setPreferredSize(new Dimension(800, 300));
 
 		// getting current weeknumber and selecting current week
 
@@ -487,5 +489,16 @@ public class ShowFrameSchedule extends JFrame {
 		ScheduleThread scheduleTh = new ScheduleThread();
 		scheduleTh.start();
 		
+	}
+
+	private void SetPrefSizes(JTable table) {
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		/*table.getColumnModel().getColumn(0).setPreferredWidth(100);
+		table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		table.getColumnModel().getColumn(2).setPreferredWidth(200);
+		table.getColumnModel().getColumn(3).setPreferredWidth(200);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table.getColumnModel().getColumn(5).setPreferredWidth(600);
+		table.getColumnModel().getColumn(5).setPreferredWidth(100);*/
 	}
 }

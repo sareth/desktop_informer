@@ -21,6 +21,7 @@ public class ScheduleThread extends Thread{
 	static boolean changed = false;
 	public void start() {
 		gettime = new Thread(this);
+		gettime.setDaemon(true);
 		gettime.start();
 	}
 
@@ -48,11 +49,17 @@ public class ScheduleThread extends Thread{
 		Date nowDate = new java.util.Date();
 		ShowFrameSchedule.tableSecondWeek.setRowSelectionAllowed(false);
 		row = getRow(nowDate);//2 3
-		System.out.print(row);
+		
 		//not now, search next
 		if(row==-1){
 			row = getNextClassRow(nowDate);
+			if (row!=-1){
 			changed = true;
+			}
+			else
+			{
+				NoClassesInThatWeek(nowDate, isThread);
+			}
 		}
 		else//now class go
 		{
@@ -64,6 +71,31 @@ public class ScheduleThread extends Thread{
 		if(changed==true){
 		changetableSecondWeek(row);
 		setToolTipAndNotify(row, nowDate, isThread);
+		}
+		
+	}
+
+	private static void NoClassesInThatWeek(Date showingDate, boolean isThread) {
+		Date tenMinAgo;
+		Calendar c = new GregorianCalendar();
+		c.setTime(lastShow);
+		c.add(Calendar.MINUTE, 30);
+		tenMinAgo = c.getTime();
+		String message = (String) "У вас больше нет пар на этой неделе!";
+		String messageTray = (String) "У вас больше нет пар на этой неделе!";
+		// changing tray message
+		ShowFrameSchedule.trayIcon.setToolTip(messageTray);
+		// show notification popup
+		if (isThread==true){
+			if (ShowFrameSchedule.notification == null && showingDate.after(tenMinAgo)) {
+				ShowFrameSchedule.notification = new ShowNotificationPopup(message,"У вас больше нет пар на этой неделе!");
+				lastShow = showingDate;
+			}
+		}else{
+			if (ShowFrameSchedule.notification == null) {
+				ShowFrameSchedule.notification = new ShowNotificationPopup(message,"У вас больше нет пар на этой неделе!");
+				lastShow = showingDate;
+			}
 		}
 		
 	}

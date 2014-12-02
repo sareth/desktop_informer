@@ -90,6 +90,40 @@ public class ShowNotificationPopup extends JFrame{
 	        	
 	        }
 	    });
+		
+		this.getContentPane().addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DiscrementOpacity discOpacity = new DiscrementOpacity ();
+	    		discOpacity.start ();
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		cont.add(closeButton, constraints);
 		//end of close button
 		

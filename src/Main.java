@@ -10,12 +10,13 @@ public class Main {
 	public static String DB_ADDRESS;
 	public static String DB_USER;
 	public static String DB_PASS;
-	File cfg;
+	public static File cfg = new File("./properties.cfg");
+	public static File teachercfg = new File("./teacher.cfg");
+
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, AWTException, UnsupportedLookAndFeelException {
 
-		File cfg = new File("properties.cfg");
-		File teachercfg = new File("teacher.cfg");
+		
 		boolean exists = cfg.exists();
 		if (exists != true) {
 			new PropertiesFrame(cfg);
